@@ -7,5 +7,5 @@ import (
 )
 
 func GetProfileQuastions(p si.GetProfileQuastionsParams) middleware.Responder {
-  return getProfileQuastionsOKResponse()
+	return getProfileQuastionsOKResponse()
 }

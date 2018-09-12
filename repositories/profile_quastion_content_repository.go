@@ -5,18 +5,18 @@ import (
 )
 
 type ProfileQuastionContentRepository struct {
-  RootRepository
+	RootRepository
 }
 
 func NewProfileQuastionContentRepository(s *Session) *ProfileQuastionContentRepository {
-  return &ProfileQuastionContentRepository{ NewRootRepository(s) }
+	return &ProfileQuastionContentRepository{NewRootRepository(s)}
 }
 
 func (r *ProfileQuastionContentRepository) Create(ent entities.ProfileQuastionContent) error {
-  s := r.GetSession()
-  if _, err := s.Insert(&ent); err != nil {
-    return err
-  }
+	s := r.GetSession()
+	if _, err := s.Insert(&ent); err != nil {
+		return err
+	}
 
-  return nil
+	return nil
 }

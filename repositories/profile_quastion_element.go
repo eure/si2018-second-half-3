@@ -5,20 +5,20 @@ import (
 )
 
 type ProfileQuastionElementRepository struct {
-  RootRepository
+	RootRepository
 }
 
 func NewProfileQuastionElementRepository(s *Session) *ProfileQuastionElementRepository {
-  return &ProfileQuastionElementRepository{ NewRootRepository(s) }
+	return &ProfileQuastionElementRepository{NewRootRepository(s)}
 }
 
 func (r *ProfileQuastionElementRepository) Create(ent entities.ProfileQuastionElement) error {
-  s := r.GetSession()
-  if _, err := s.Insert(&ent); err != nil {
-    return err
-  }
+	s := r.GetSession()
+	if _, err := s.Insert(&ent); err != nil {
+		return err
+	}
 
-  return nil
+	return nil
 }
 
 func (r *ProfileQuastionElementRepository) Update(ent *entities.ProfileQuastionElement) error {

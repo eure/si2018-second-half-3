@@ -469,6 +469,9 @@ definitions:
     type: "object"
     description: "プロフィール設定の質問事項"
     properties:
+      name:
+        type: "string"
+        format: "string"
       priotrity:
         type: "integer"
         format: "int64"
@@ -1210,79 +1213,9 @@ paths:
         200:
           description: "OK"
           schema:
-            type: object
-            properties:
-              gender:
-                $ref: "#/definitions/ProfileQuastionElement"
-                description: "M or F string"
-              birthday:
-                $ref: "#/definitions/ProfileQuastionElement"
-                description: "誕生日"
-              nickname:
-                $ref: "#/definitions/ProfileQuastionElement"
-                description: "ニックネーム"
-              tweet:
-                $ref: "#/definitions/ProfileQuastionElement"
-                description: "Tweet"
-              introduction:
-                description: "自己紹介"
-                $ref: "#/definitions/ProfileQuastionElement"
-              residence_state:
-                description: "居住地"
-                $ref: "#/definitions/ProfileQuastionElement"
-              home_state:
-                description: "出身地"
-                $ref: "#/definitions/ProfileQuastionElement"
-              education:
-                $ref: "#/definitions/ProfileQuastionElement"
-                description: "学歴"
-              job:
-                $ref: "#/definitions/ProfileQuastionElement"
-                description: "仕事"
-              annual_income:
-                $ref: "#/definitions/ProfileQuastionElement"
-                description: "年収"
-              height:
-                $ref: "#/definitions/ProfileQuastionElement"
-                description: "身長"
-              body_build:
-                $ref: "#/definitions/ProfileQuastionElement"
-                description: "体型"
-              marital_status:
-                $ref: "#/definitions/ProfileQuastionElement"
-                description: "結婚歴"
-              child:
-                $ref: "#/definitions/ProfileQuastionElement"
-                description: "子供"
-              when_marry:
-                $ref: "#/definitions/ProfileQuastionElement"
-                description: "結婚の意志"
-              want_child:
-                $ref: "#/definitions/ProfileQuastionElement"
-                description: "子供が欲しいか？"
-              smoking:
-                $ref: "#/definitions/ProfileQuastionElement"
-                description: "タバコを吸うか？"
-              drinking:
-                $ref: "#/definitions/ProfileQuastionElement"
-                description: "お酒を飲むか？"
-              holiday:
-                $ref: "#/definitions/ProfileQuastionElement"
-                description: "休日"
-              how_to_meet:
-                $ref: "#/definitions/ProfileQuastionElement"
-                description: "出会うまでの希望"
-              cost_of_date:
-                $ref: "#/definitions/ProfileQuastionElement"
-                description: ""
-              nth_child:
-                $ref: "#/definitions/ProfileQuastionElement"
-                description: "長男長女...etc"
-              housework:
-                $ref: "#/definitions/ProfileQuastionElement"
-                description: "家事"
-            xml:
-              name: "profileQuastions"
+            type: array
+            items:
+              $ref: "#/definitions/ProfileQuastionElement"
         400:
           description: "Bad Request"
           schema:

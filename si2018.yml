@@ -465,6 +465,32 @@ definitions:
     xml:
       name: "MatchUserResponse"
 
+  ProfileQuastionElement:
+    type: "object"
+    description: "プロフィール設定の質問事項"
+    properties:
+      priotrity:
+        type: "integer"
+        format: "int64"
+      content:
+        $ref: "#/definitions/ProfileQuastionContent"
+    xml:
+      name: "ProfileQuastionElement"
+
+  ProfileQuastionContent:
+    type: "array"
+    items:
+      type: object
+      properties:
+        type:
+          type: "string"
+          format: "string"
+        message:
+          type: "string"
+          format: "string"
+    xml:
+      name: "ProfileQuastionContent"
+
 paths:
   /tokens/{userId}:
     get:
@@ -1165,3 +1191,195 @@ paths:
               message:
                 type: "string"
                 example: "Internal Server Error"
+
+  /profile_quastions:
+    get:
+      summary: "チャット式プロフィール設定の質問事項"
+      description: "
+        答えていない質問を返します。<br />
+        設定していないプロフィール項目を設定するための質問を返します。
+      "
+      operationId: "getProfileQuastions"
+      parameters:
+      - in: query
+        name: token
+        required: true
+        description: "ログイントークン"
+        type: string
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: object
+            properties:
+              gender:
+                type: object
+                description: "M or F string"
+              birthday:
+                type: object
+                description: "誕生日"
+                properties:
+                  schema:
+                    $ref: "#/definitions/ProfileQuastionElement"
+              nickname:
+                type: object
+                description: "ニックネーム"
+                properties:
+                  schema:
+                    $ref: "#/definitions/ProfileQuastionElement"
+              tweet:
+                type: object
+                description: "Tweet"
+                properties:
+                  schema:
+                    $ref: "#/definitions/ProfileQuastionElement"
+              introduction:
+                type: object
+                description: "自己紹介"
+                properties:
+                  schema:
+                    $ref: "#/definitions/ProfileQuastionElement"
+              residence_state:
+                type: object
+                description: "居住地"
+                properties:
+                  schema:
+                    $ref: "#/definitions/ProfileQuastionElement"
+              home_state:
+                type: object
+                description: "出身地"
+                properties:
+                  schema:
+                    $ref: "#/definitions/ProfileQuastionElement"
+              education:
+                type: object
+                description: "学歴"
+                properties:
+                  schema:
+                    $ref: "#/definitions/ProfileQuastionElement"
+              job:
+                type: object
+                description: "仕事"
+                properties:
+                  schema:
+                    $ref: "#/definitions/ProfileQuastionElement"
+              annual_income:
+                type: object
+                description: "年収"
+                properties:
+                  schema:
+                    $ref: "#/definitions/ProfileQuastionElement"
+              height:
+                type: object
+                description: "身長"
+                properties:
+                  schema:
+                    $ref: "#/definitions/ProfileQuastionElement"
+              body_build:
+                type: object
+                description: "体型"
+                properties:
+                  schema:
+                    $ref: "#/definitions/ProfileQuastionElement"
+              marital_status:
+                type: object
+                description: "結婚歴"
+                properties:
+                  schema:
+                    $ref: "#/definitions/ProfileQuastionElement"
+              child:
+                type: object
+                description: "子供"
+                properties:
+                  schema:
+                    $ref: "#/definitions/ProfileQuastionElement"
+              when_marry:
+                type: object
+                description: "結婚の意志"
+                properties:
+                  schema:
+                    $ref: "#/definitions/ProfileQuastionElement"
+              want_child:
+                type: object
+                description: "子供が欲しいか？"
+                properties:
+                  schema:
+                    $ref: "#/definitions/ProfileQuastionElement"
+              smoking:
+                type: object
+                description: "タバコを吸うか？"
+                properties:
+                  schema:
+                    $ref: "#/definitions/ProfileQuastionElement"
+              drinking:
+                type: object
+                description: "お酒を飲むか？"
+                properties:
+                  schema:
+                    $ref: "#/definitions/ProfileQuastionElement"
+              holiday:
+                type: object
+                description: "休日"
+                properties:
+                  schema:
+                    $ref: "#/definitions/ProfileQuastionElement"
+              how_to_meet:
+                type: object
+                description: "出会うまでの希望"
+                properties:
+                  schema:
+                    $ref: "#/definitions/ProfileQuastionElement"
+              cost_of_date:
+                type: object
+                description: ""
+                properties:
+                  schema:
+                    $ref: "#/definitions/ProfileQuastionElement"
+              nth_child:
+                type: object
+                description: "長男長女...etc"
+                properties:
+                  schema:
+                    $ref: "#/definitions/ProfileQuastionElement"
+              housework:
+                type: object
+                description: "家事"
+                properties:
+                  schema:
+                    $ref: "#/definitions/ProfileQuastionElement"
+            xml:
+              name: "profileQuastions"
+        400:
+          description: "Bad Request"
+          schema:
+            type: object
+            properties:
+              code:
+                type: "string"
+                example: "400"
+              message:
+                type: "string"
+                example: "Bad Request"
+        401:
+          description: "Unauthorized (トークン認証に失敗)"
+          schema:
+            type: object
+            properties:
+              code:
+                type: "string"
+                example: "401"
+              message:
+                type: "string"
+                example: "Token Is Invalid"
+        500:
+          description: "Internal Server Error"
+          schema:
+            type: object
+            properties:
+              code:
+                type: "string"
+                example: "500"
+              message:
+                type: "string"
+                example: "Internal Server Error"
+

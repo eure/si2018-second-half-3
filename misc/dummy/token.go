@@ -2,23 +2,19 @@ package main
 
 import (
 	"fmt"
-	"time"
 
-	"github.com/eure/si2018-server-side/entities"
-	"github.com/eure/si2018-server-side/repositories"
-	"github.com/go-openapi/strfmt"
+	"github.com/eure/si2018-second-half-3/entities"
+	"github.com/eure/si2018-second-half-3/repositories"
 )
 
 func dummyToken() {
-	r := repositories.NewUserTokenRepository()
+	s := repositories.NewSession()
+	r := repositories.NewUserTokenRepository(s)
 
 	for i := firstUserID; i <= lastUserID; i++ {
-		now := strfmt.DateTime(time.Now())
 		token := entities.UserToken{
-			UserID:    int64(i),
-			Token:     fmt.Sprintf("USERTOKEN%v", i),
-			CreatedAt: now,
-			UpdatedAt: now,
+			UserID: int64(i),
+			Token:  fmt.Sprintf("USERTOKEN%v", i),
 		}
 		r.Create(token)
 	}

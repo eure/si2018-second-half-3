@@ -36,7 +36,8 @@ func dummyImage() {
 		"https://si-2018-000.eure.jp/assets/tehepero2_youngman.png",
 	}
 
-	r := repositories.NewUserImageRepository()
+	s := repositories.NewSession()
+	r := repositories.NewUserImageRepository(s)
 
 	// for male
 	for i := maleIDStart; i <= maleIDEnd; i++ {

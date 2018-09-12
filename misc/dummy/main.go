@@ -32,7 +32,8 @@ func main() {
 }
 
 func dummyManyGotLikeUser() {
-	r := repositories.NewUserLikeRepository()
+	s := repositories.NewSession()
+	r := repositories.NewUserLikeRepository(s)
 
 	for i := 1; i <= 100; i++ {
 		rand.Seed(time.Now().UnixNano())
@@ -53,9 +54,10 @@ func dummyManyGotLikeUser() {
 func dummyManyMatchUser() {
 	firstLikeDate := strfmt.DateTime(time.Now().AddDate(0, 0, -3))
 	responseLikeDate := strfmt.DateTime(time.Now().AddDate(0, 0, -2))
+	s := repositories.NewSession()
 
-	lr := repositories.NewUserLikeRepository()
-	mr := repositories.NewUserMatchRepository()
+	lr := repositories.NewUserLikeRepository(s)
+	mr := repositories.NewUserMatchRepository(s)
 
 	// Male 1-100 & Female 1112
 	// =====================================================
@@ -133,9 +135,10 @@ func dummyManyMatchUser() {
 func dummyManyMessageCouple() {
 	today := strfmt.DateTime(time.Now())
 	yesterday := strfmt.DateTime(time.Now().AddDate(0, 0, -1))
+	s := repositories.NewSession()
 
 	// マッチの前提として相互いいねが必要
-	lr := repositories.NewUserLikeRepository()
+	lr := repositories.NewUserLikeRepository(s)
 	lr.Create(
 		entities.UserLike{
 			UserID:    maleMessageUserID,
@@ -152,7 +155,7 @@ func dummyManyMessageCouple() {
 		})
 
 	// メッセージの前提としてマッチが必要
-	mr := repositories.NewUserMatchRepository()
+	mr := repositories.NewUserMatchRepository(s)
 	mr.Create(
 		entities.UserMatch{
 			UserID:    maleMessageUserID,
@@ -167,7 +170,7 @@ func dummyManyMessageCouple() {
 	randTime := strfmt.DateTime(time.Now().AddDate(0, 0, -createdDaysAgo).Add(-time.Duration(minute1) * time.Minute))
 
 	// 双方向に130件ずつメッセージ
-	msgr := repositories.NewUserMessageRepository()
+	msgr := repositories.NewUserMessageRepository(s)
 	for i := 0; i <= 130; i++ {
 		ent := entities.UserMessage{
 			UserID:    maleMessageUserID,

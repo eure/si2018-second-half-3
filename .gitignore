@@ -21,3 +21,6 @@ vendor/
 
 # build
 main
+
+# db settings
+db/dbconf.yml

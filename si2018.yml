@@ -472,7 +472,7 @@ definitions:
       priotrity:
         type: "integer"
         format: "int64"
-      content:
+      contents:
         $ref: "#/definitions/ProfileQuastionContent"
     xml:
       name: "ProfileQuastionElement"
@@ -1213,140 +1213,74 @@ paths:
             type: object
             properties:
               gender:
-                type: object
+                $ref: "#/definitions/ProfileQuastionElement"
                 description: "M or F string"
               birthday:
-                type: object
+                $ref: "#/definitions/ProfileQuastionElement"
                 description: "誕生日"
-                properties:
-                  schema:
-                    $ref: "#/definitions/ProfileQuastionElement"
               nickname:
-                type: object
+                $ref: "#/definitions/ProfileQuastionElement"
                 description: "ニックネーム"
-                properties:
-                  schema:
-                    $ref: "#/definitions/ProfileQuastionElement"
               tweet:
-                type: object
+                $ref: "#/definitions/ProfileQuastionElement"
                 description: "Tweet"
-                properties:
-                  schema:
-                    $ref: "#/definitions/ProfileQuastionElement"
               introduction:
-                type: object
                 description: "自己紹介"
-                properties:
-                  schema:
-                    $ref: "#/definitions/ProfileQuastionElement"
+                $ref: "#/definitions/ProfileQuastionElement"
               residence_state:
-                type: object
                 description: "居住地"
-                properties:
-                  schema:
-                    $ref: "#/definitions/ProfileQuastionElement"
+                $ref: "#/definitions/ProfileQuastionElement"
               home_state:
-                type: object
                 description: "出身地"
-                properties:
-                  schema:
-                    $ref: "#/definitions/ProfileQuastionElement"
+                $ref: "#/definitions/ProfileQuastionElement"
               education:
-                type: object
+                $ref: "#/definitions/ProfileQuastionElement"
                 description: "学歴"
-                properties:
-                  schema:
-                    $ref: "#/definitions/ProfileQuastionElement"
               job:
-                type: object
+                $ref: "#/definitions/ProfileQuastionElement"
                 description: "仕事"
-                properties:
-                  schema:
-                    $ref: "#/definitions/ProfileQuastionElement"
               annual_income:
-                type: object
+                $ref: "#/definitions/ProfileQuastionElement"
                 description: "年収"
-                properties:
-                  schema:
-                    $ref: "#/definitions/ProfileQuastionElement"
               height:
-                type: object
+                $ref: "#/definitions/ProfileQuastionElement"
                 description: "身長"
-                properties:
-                  schema:
-                    $ref: "#/definitions/ProfileQuastionElement"
               body_build:
-                type: object
+                $ref: "#/definitions/ProfileQuastionElement"
                 description: "体型"
-                properties:
-                  schema:
-                    $ref: "#/definitions/ProfileQuastionElement"
               marital_status:
-                type: object
+                $ref: "#/definitions/ProfileQuastionElement"
                 description: "結婚歴"
-                properties:
-                  schema:
-                    $ref: "#/definitions/ProfileQuastionElement"
               child:
-                type: object
+                $ref: "#/definitions/ProfileQuastionElement"
                 description: "子供"
-                properties:
-                  schema:
-                    $ref: "#/definitions/ProfileQuastionElement"
               when_marry:
-                type: object
+                $ref: "#/definitions/ProfileQuastionElement"
                 description: "結婚の意志"
-                properties:
-                  schema:
-                    $ref: "#/definitions/ProfileQuastionElement"
               want_child:
-                type: object
+                $ref: "#/definitions/ProfileQuastionElement"
                 description: "子供が欲しいか？"
-                properties:
-                  schema:
-                    $ref: "#/definitions/ProfileQuastionElement"
               smoking:
-                type: object
+                $ref: "#/definitions/ProfileQuastionElement"
                 description: "タバコを吸うか？"
-                properties:
-                  schema:
-                    $ref: "#/definitions/ProfileQuastionElement"
               drinking:
-                type: object
+                $ref: "#/definitions/ProfileQuastionElement"
                 description: "お酒を飲むか？"
-                properties:
-                  schema:
-                    $ref: "#/definitions/ProfileQuastionElement"
               holiday:
-                type: object
+                $ref: "#/definitions/ProfileQuastionElement"
                 description: "休日"
-                properties:
-                  schema:
-                    $ref: "#/definitions/ProfileQuastionElement"
               how_to_meet:
-                type: object
+                $ref: "#/definitions/ProfileQuastionElement"
                 description: "出会うまでの希望"
-                properties:
-                  schema:
-                    $ref: "#/definitions/ProfileQuastionElement"
               cost_of_date:
-                type: object
+                $ref: "#/definitions/ProfileQuastionElement"
                 description: ""
-                properties:
-                  schema:
-                    $ref: "#/definitions/ProfileQuastionElement"
               nth_child:
-                type: object
+                $ref: "#/definitions/ProfileQuastionElement"
                 description: "長男長女...etc"
-                properties:
-                  schema:
-                    $ref: "#/definitions/ProfileQuastionElement"
               housework:
-                type: object
+                $ref: "#/definitions/ProfileQuastionElement"
                 description: "家事"
-                properties:
-                  schema:
-                    $ref: "#/definitions/ProfileQuastionElement"
             xml:
               name: "profileQuastions"
         400:
@@ -1382,4 +1316,3 @@ paths:
               message:
                 type: "string"
                 example: "Internal Server Error"
-

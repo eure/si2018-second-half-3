@@ -9,6 +9,7 @@ type ProfileQuastionElement struct {
 	Priority int64  `xorm:"priority"`
 	Name     string `xorm:"name"`
 
+	Choices  []ProfileQuastionChoice  `xorm:"-"`
 	Contents []ProfileQuastionContent `xorm:"-"`
 }
 
@@ -25,8 +26,15 @@ func (p ProfileQuastionElement) Build() models.ProfileQuastionElement {
 		profileQuastionContent = append(profileQuastionContent, &contentItem)
 	}
 
+	// 本来はentities.ProfileQuastionChoiceないでモデルへの変換をやるべきだけどここでやっちゃう
+	var choiceContent []string
+	for _, choice := range p.Choices {
+		choiceContent = append(choiceContent, choice.Content)
+	}
+
 	return models.ProfileQuastionElement{
 		Contents: profileQuastionContent,
+		Choices:  choiceContent,
 		Name:     p.Name,
 		Priority: p.Priority,
 	}

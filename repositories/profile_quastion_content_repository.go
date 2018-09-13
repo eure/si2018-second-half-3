@@ -20,3 +20,16 @@ func (r *ProfileQuastionContentRepository) Create(ent entities.ProfileQuastionCo
 
 	return nil
 }
+
+func (r *ProfileQuastionContentRepository) FindByProfileQuastionIds(ids []int64) ([]entities.ProfileQuastionContent, error) {
+	var profileQuastionContents []entities.ProfileQuastionContent
+	err := engine.
+		In("id", ids).
+		Find(&profileQuastionContents)
+
+	if err != nil {
+		return profileQuastionContents, err
+	}
+
+	return profileQuastionContents, nil
+}

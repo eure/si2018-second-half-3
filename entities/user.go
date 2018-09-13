@@ -96,73 +96,73 @@ func (u User) GetBalkProfileItems() []string {
 	//  if u.Birthday == strfmt.Date {
 	//    balkProfileItems = append(balkProfileItems, "Birthday")
 	//  }
-	if isStringPresent(u.Gender) {
+	if !isStringPresent(u.Gender) {
 		balkProfileItems = append(balkProfileItems, "Gender")
 	}
-	if isStringPresent(u.Nickname) {
+	if !isStringPresent(u.Nickname) {
 		balkProfileItems = append(balkProfileItems, "Nickname")
 	}
 	if isStringPresent(u.ImageURI) {
 		balkProfileItems = append(balkProfileItems, "ImageURI")
 	}
-	if isStringPresent(u.Tweet) {
+	if !isStringPresent(u.Tweet) {
 		balkProfileItems = append(balkProfileItems, "Tweet")
 	}
-	if isStringPresent(u.Introduction) {
+	if !isStringPresent(u.Introduction) {
 		balkProfileItems = append(balkProfileItems, "Introduction")
 	}
-	if isStringPresent(u.ResidenceState) {
+	if !isStringPresent(u.ResidenceState) {
 		balkProfileItems = append(balkProfileItems, "ResidenceState")
 	}
-	if isStringPresent(u.HomeState) {
+	if !isStringPresent(u.HomeState) {
 		balkProfileItems = append(balkProfileItems, "HomeState")
 	}
-	if isStringPresent(u.Education) {
+	if !isStringPresent(u.Education) {
 		balkProfileItems = append(balkProfileItems, "Education")
 	}
-	if isStringPresent(u.Job) {
+	if !isStringPresent(u.Job) {
 		balkProfileItems = append(balkProfileItems, "Job")
 	}
-	if isStringPresent(u.AnnualIncome) {
+	if !isStringPresent(u.AnnualIncome) {
 		balkProfileItems = append(balkProfileItems, "AnnualIncome")
 	}
-	if isStringPresent(u.Height) {
+	if !isStringPresent(u.Height) {
 		balkProfileItems = append(balkProfileItems, "Height")
 	}
-	if isStringPresent(u.BodyBuild) {
+	if !isStringPresent(u.BodyBuild) {
 		balkProfileItems = append(balkProfileItems, "BodyBuild")
 	}
-	if isStringPresent(u.MaritalStatus) {
+	if !isStringPresent(u.MaritalStatus) {
 		balkProfileItems = append(balkProfileItems, "MaritalStatus")
 	}
-	if isStringPresent(u.Child) {
+	if !isStringPresent(u.Child) {
 		balkProfileItems = append(balkProfileItems, "Child")
 	}
-	if isStringPresent(u.WhenMarry) {
+	if !isStringPresent(u.WhenMarry) {
 		balkProfileItems = append(balkProfileItems, "WhenMarry")
 	}
-	if isStringPresent(u.WantChild) {
+	if !isStringPresent(u.WantChild) {
 		balkProfileItems = append(balkProfileItems, "WantChild")
 	}
-	if isStringPresent(u.Smoking) {
+	if !isStringPresent(u.Smoking) {
 		balkProfileItems = append(balkProfileItems, "Smoking")
 	}
-	if isStringPresent(u.Drinking) {
+	if !isStringPresent(u.Drinking) {
 		balkProfileItems = append(balkProfileItems, "Drinking")
 	}
-	if isStringPresent(u.Holiday) {
+	if !isStringPresent(u.Holiday) {
 		balkProfileItems = append(balkProfileItems, "Holiday")
 	}
-	if isStringPresent(u.HowToMeet) {
+	if !isStringPresent(u.HowToMeet) {
 		balkProfileItems = append(balkProfileItems, "HowToMeet")
 	}
-	if isStringPresent(u.CostOfDate) {
+	if !isStringPresent(u.CostOfDate) {
 		balkProfileItems = append(balkProfileItems, "CostOfDate")
 	}
-	if isStringPresent(u.NthChild) {
+	if !isStringPresent(u.NthChild) {
 		balkProfileItems = append(balkProfileItems, "NthChild")
 	}
-	if isStringPresent(u.Housework) {
+	if !isStringPresent(u.Housework) {
 		balkProfileItems = append(balkProfileItems, "Housework")
 	}
 

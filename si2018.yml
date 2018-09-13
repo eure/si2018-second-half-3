@@ -472,7 +472,7 @@ definitions:
       name:
         type: "string"
         format: "string"
-      priotrity:
+      priority:
         type: "integer"
         format: "int64"
       contents:

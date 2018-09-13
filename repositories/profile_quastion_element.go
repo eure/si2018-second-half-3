@@ -28,3 +28,18 @@ func (r *ProfileQuastionElementRepository) Update(ent *entities.ProfileQuastionE
 	}
 	return nil
 }
+
+func (r *ProfileQuastionElementRepository) FindByBalkProfileList(balkProfileList []string) ([]entities.ProfileQuastionElement, error) {
+	var profileQuastionElemetens []entities.ProfileQuastionElement
+
+	err := engine.
+		In("name", balkProfileList).
+		Asc("priority").
+		Find(&profileQuastionElemetens)
+
+	if err != nil {
+		return profileQuastionElemetens, err
+	}
+
+	return profileQuastionElemetens, nil
+}

@@ -10,6 +10,7 @@ import (
 	runtime "github.com/go-openapi/runtime"
 
 	"github.com/eure/si2018-second-half-3/controllers/message"
+	"github.com/eure/si2018-second-half-3/controllers/profile_quastion"
 	"github.com/eure/si2018-second-half-3/controllers/token"
 	"github.com/eure/si2018-second-half-3/controllers/user"
 	"github.com/eure/si2018-second-half-3/controllers/userimage"
@@ -48,6 +49,7 @@ func configureAPI(api *summerintern.SummerIntern2018API) http.Handler {
 	api.PostLikeHandler = summerintern.PostLikeHandlerFunc(userlike.PostLike)
 	api.GetMatchesHandler = summerintern.GetMatchesHandlerFunc(usermatch.GetMatches)
 	api.PostImagesHandler = summerintern.PostImagesHandlerFunc(userimage.PostImage)
+	api.GetProfileQuastionsHandler = summerintern.GetProfileQuastionsHandlerFunc(profile_quastion.GetProfileQuastions)
 
 	api.ServerShutdown = func() {}
 

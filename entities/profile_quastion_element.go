@@ -27,9 +27,10 @@ func (p ProfileQuastionElement) Build() models.ProfileQuastionElement {
 	}
 
 	// 本来はentities.ProfileQuastionChoiceないでモデルへの変換をやるべきだけどここでやっちゃう
-	var choiceContent []string
-	for _, choice := range p.Choices {
-		choiceContent = append(choiceContent, choice.Content)
+	choiceContent := make([]string, len(p.Choices))
+
+	for i, choice := range p.Choices {
+		choiceContent[i] = choice.Content
 	}
 
 	return models.ProfileQuastionElement{

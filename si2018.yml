@@ -498,6 +498,13 @@ definitions:
           format: "string"
     xml:
       name: "ProfileQuastionContent"
+  ProfileQuastionChoice:
+    type: "array"
+    items:
+      type: string
+      format: "string"
+    xml:
+      name: "ProfileQuastionContent"
 
 paths:
   /tokens/{userId}:

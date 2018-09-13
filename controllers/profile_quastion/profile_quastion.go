@@ -4,6 +4,7 @@ import (
 	"github.com/go-openapi/runtime/middleware"
 
 	"github.com/eure/si2018-second-half-3/libs/token"
+	"github.com/eure/si2018-second-half-3/models"
 	"github.com/eure/si2018-second-half-3/repositories"
 	si "github.com/eure/si2018-second-half-3/restapi/summerintern"
 )
@@ -22,7 +23,8 @@ func GetProfileQuastions(p si.GetProfileQuastionsParams) middleware.Responder {
 
 	balkProfileList := user.GetBalkProfileItems()
 	if len(balkProfileList) == 0 {
-		return getProfileQuastionsOKResponse()
+		var elements []*models.ProfileQuastionElement
+		return getProfileQuastionsOKResponse(elements)
 	}
 
 	// 未記入項目をもとにProfileQuastionsElementを取得する

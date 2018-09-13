@@ -1,12 +1,13 @@
 package profile_quastion
 
 import (
+	"github.com/eure/si2018-second-half-3/models"
 	si "github.com/eure/si2018-second-half-3/restapi/summerintern"
 	"github.com/go-openapi/runtime/middleware"
 )
 
-func getProfileQuastionsOKResponse() middleware.Responder {
-	return si.NewGetProfileQuastionsOK()
+func getProfileQuastionsOKResponse(profileQuastionElemetens []*models.ProfileQuastionElement) middleware.Responder {
+	return si.NewGetProfileQuastionsOK().WithPayload(profileQuastionElemetens)
 }
 
 func getProfileQuastionsInternalServerErrorResponse(message string) middleware.Responder {

@@ -25,5 +25,15 @@ func GetProfileQuastions(p si.GetProfileQuastionsParams) middleware.Responder {
 		return getProfileQuastionsOKResponse()
 	}
 
-	return getProfileQuastionsOKResponse()
+	// 未記入項目をもとにProfileQuastionsElementを取得する
+	r := repositories.NewProfileQuastionElementRepository(s)
+	profileQuastionElemetens, err := r.FindByBalkProfileList(balkProfileList)
+
+	if err != nil {
+		return getProfileQuastionsInternalServerErrorResponse("ProfileQuastionsElementの取得失敗")
+	}
+
+	if len(profileQuastionElemetens) == 0 {
+		return getProfileQuastionsInternalServerErrorResponse("ProfileQuastionsElementが追加されてない可能性があります")
+	}
 }

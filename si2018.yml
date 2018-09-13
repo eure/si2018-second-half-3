@@ -173,6 +173,9 @@ definitions:
       housework:
         type: "string"
         description: "家事"
+      hobby:
+        type: "string"
+        description: "趣味"
       created_at:
         type: "string"
         format: date-time

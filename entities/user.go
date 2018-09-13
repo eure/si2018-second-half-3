@@ -30,6 +30,7 @@ type User struct {
 	CostOfDate     string          `xorm:"cost_of_date"`
 	NthChild       string          `xorm:"nth_child"`
 	Housework      string          `xorm:"housework"`
+	Hobby          string          `xorm:"hobby"`
 	CreatedAt      strfmt.DateTime `xorm:"created_at"`
 	UpdatedAt      strfmt.DateTime `xorm:"updated_at"`
 
@@ -63,6 +64,7 @@ func (u User) Build() models.User {
 		CostOfDate:     u.CostOfDate,
 		NthChild:       u.NthChild,
 		Housework:      u.Housework,
+		Hobby:          u.Hobby,
 		CreatedAt:      u.CreatedAt,
 		UpdatedAt:      u.UpdatedAt,
 	}
@@ -158,6 +160,9 @@ func (u User) GetBalkProfileItems() []string {
 	}
 	if !isStringPresent(u.CostOfDate) {
 		balkProfileItems = append(balkProfileItems, "cost_of_date")
+	}
+	if !isStringPresent(u.Hobby) {
+		balkProfileItems = append(balkProfileItems, "hobby")
 	}
 	if !isStringPresent(u.NthChild) {
 		balkProfileItems = append(balkProfileItems, "nth_child")

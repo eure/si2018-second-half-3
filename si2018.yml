@@ -475,6 +475,11 @@ definitions:
       priority:
         type: "integer"
         format: "int64"
+      choices:
+        type: array
+        items:
+          type: string
+          format: "string"
       contents:
         $ref: "#/definitions/ProfileQuastionContent"
     xml:
@@ -491,6 +496,13 @@ definitions:
         message:
           type: "string"
           format: "string"
+    xml:
+      name: "ProfileQuastionContent"
+  ProfileQuastionChoice:
+    type: "array"
+    items:
+      type: string
+      format: "string"
     xml:
       name: "ProfileQuastionContent"
 

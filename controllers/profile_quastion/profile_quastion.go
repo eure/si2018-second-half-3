@@ -22,8 +22,8 @@ func GetProfileQuastions(p si.GetProfileQuastionsParams) middleware.Responder {
 		return getProfileQuastionsUnauthorizedResponse("無効なトークン")
 	}
 
-	balkProfileList := user.GetBalkProfileItems()
-	if len(balkProfileList) == 0 {
+	blankProfileList := user.GetBalkProfileItems()
+	if len(blankProfileList) == 0 {
 		var elements []*models.ProfileQuastionElement
 		return getProfileQuastionsOKResponse(elements)
 	}
@@ -32,7 +32,7 @@ func GetProfileQuastions(p si.GetProfileQuastionsParams) middleware.Responder {
 	r := repositories.NewProfileQuastionElementRepository(s)
 	var profileQuastionElemetens entities.ProfileQuastionElements
 
-	profileQuastionElemetens, err = r.FindByBalkProfileList(balkProfileList)
+	profileQuastionElemetens, err = r.FindByBalkProfileList(blankProfileList)
 
 	if err != nil {
 		return getProfileQuastionsInternalServerErrorResponse("ProfileQuastionsElementの取得失敗")
@@ -47,6 +47,16 @@ func GetProfileQuastions(p si.GetProfileQuastionsParams) middleware.Responder {
 	//FIXME N + 1起きるけど許して♡
 	for i, element := range profileQuastionElemetens {
 		profileQuastionElemetens[i].Contents, err = contentRepository.FindByProfileQuastionId(element.ID)
+		if err != nil {
+			return getProfileQuastionsInternalServerErrorResponse("内部エラー")
+		}
+	}
+
+	choiseRepository := repositories.NewProfileQuastionChoiceRepository(s)
+
+	//FIXME N + 1同じく許して♡
+	for i, element := range profileQuastionElemetens {
+		profileQuastionElemetens[i].Choices, err = choiseRepository.FindByProfileQuastionId(element.ID)
 		if err != nil {
 			return getProfileQuastionsInternalServerErrorResponse("内部エラー")
 		}

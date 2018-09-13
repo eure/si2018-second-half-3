@@ -21,6 +21,20 @@ func (r *ProfileQuastionContentRepository) Create(ent entities.ProfileQuastionCo
 	return nil
 }
 
+func (r *ProfileQuastionContentRepository) FindByProfileQuastionId(id int64) ([]entities.ProfileQuastionContent, error) {
+	var profileQuastionContents []entities.ProfileQuastionContent
+
+	err := engine.
+		Where("profile_quastion_id = ?", id).
+		Find(&profileQuastionContents)
+
+	if err != nil {
+		return profileQuastionContents, err
+	}
+
+	return profileQuastionContents, nil
+}
+
 func (r *ProfileQuastionContentRepository) FindByProfileQuastionIds(ids []int64) ([]entities.ProfileQuastionContent, error) {
 	var profileQuastionContents []entities.ProfileQuastionContent
 	err := engine.

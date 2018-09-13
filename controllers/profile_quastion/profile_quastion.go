@@ -20,5 +20,10 @@ func GetProfileQuastions(p si.GetProfileQuastionsParams) middleware.Responder {
 		return getProfileQuastionsUnauthorizedResponse("無効なトークン")
 	}
 
+	balkProfileList := user.GetBalkProfileItems()
+	if len(balkProfileList) == 0 {
+		return getProfileQuastionsOKResponse()
+	}
+
 	return getProfileQuastionsOKResponse()
 }

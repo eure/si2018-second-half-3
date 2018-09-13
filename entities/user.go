@@ -86,3 +86,96 @@ func (users *Users) Build() []*models.User {
 	}
 	return sUsers
 }
+
+// ユーザーの未記入項目のリストを返す関数
+// 時間がないので、クソコードで行く
+func (u User) GetBalkProfileItems() []string {
+	var balkProfileItems []string
+
+	// FIXME Birthdayの空判定がぱっと出てこないので後回し
+	//  if u.Birthday == strfmt.Date {
+	//    balkProfileItems = append(balkProfileItems, "Birthday")
+	//  }
+	if isStringPresent(u.Gender) {
+		balkProfileItems = append(balkProfileItems, "Gender")
+	}
+	if isStringPresent(u.Nickname) {
+		balkProfileItems = append(balkProfileItems, "Nickname")
+	}
+	if isStringPresent(u.ImageURI) {
+		balkProfileItems = append(balkProfileItems, "ImageURI")
+	}
+	if isStringPresent(u.Tweet) {
+		balkProfileItems = append(balkProfileItems, "Tweet")
+	}
+	if isStringPresent(u.Introduction) {
+		balkProfileItems = append(balkProfileItems, "Introduction")
+	}
+	if isStringPresent(u.ResidenceState) {
+		balkProfileItems = append(balkProfileItems, "ResidenceState")
+	}
+	if isStringPresent(u.HomeState) {
+		balkProfileItems = append(balkProfileItems, "HomeState")
+	}
+	if isStringPresent(u.Education) {
+		balkProfileItems = append(balkProfileItems, "Education")
+	}
+	if isStringPresent(u.Job) {
+		balkProfileItems = append(balkProfileItems, "Job")
+	}
+	if isStringPresent(u.AnnualIncome) {
+		balkProfileItems = append(balkProfileItems, "AnnualIncome")
+	}
+	if isStringPresent(u.Height) {
+		balkProfileItems = append(balkProfileItems, "Height")
+	}
+	if isStringPresent(u.BodyBuild) {
+		balkProfileItems = append(balkProfileItems, "BodyBuild")
+	}
+	if isStringPresent(u.MaritalStatus) {
+		balkProfileItems = append(balkProfileItems, "MaritalStatus")
+	}
+	if isStringPresent(u.Child) {
+		balkProfileItems = append(balkProfileItems, "Child")
+	}
+	if isStringPresent(u.WhenMarry) {
+		balkProfileItems = append(balkProfileItems, "WhenMarry")
+	}
+	if isStringPresent(u.WantChild) {
+		balkProfileItems = append(balkProfileItems, "WantChild")
+	}
+	if isStringPresent(u.Smoking) {
+		balkProfileItems = append(balkProfileItems, "Smoking")
+	}
+	if isStringPresent(u.Drinking) {
+		balkProfileItems = append(balkProfileItems, "Drinking")
+	}
+	if isStringPresent(u.Holiday) {
+		balkProfileItems = append(balkProfileItems, "Holiday")
+	}
+	if isStringPresent(u.HowToMeet) {
+		balkProfileItems = append(balkProfileItems, "HowToMeet")
+	}
+	if isStringPresent(u.CostOfDate) {
+		balkProfileItems = append(balkProfileItems, "CostOfDate")
+	}
+	if isStringPresent(u.NthChild) {
+		balkProfileItems = append(balkProfileItems, "NthChild")
+	}
+	if isStringPresent(u.Housework) {
+		balkProfileItems = append(balkProfileItems, "Housework")
+	}
+
+	return balkProfileItems
+}
+
+// stringがnil or ""かを判定する
+func isStringPresent(str string) bool {
+	// このままだと " "こういう文字列も入力済みとして判定される
+	// 判定できる関数が標準パッケージにありそう
+	if len(str) == 0 {
+		return false
+	}
+
+	return true
+}

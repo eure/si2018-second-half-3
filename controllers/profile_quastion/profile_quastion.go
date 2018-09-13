@@ -3,6 +3,7 @@ package profile_quastion
 import (
 	"github.com/go-openapi/runtime/middleware"
 
+	"github.com/eure/si2018-second-half-3/entities"
 	"github.com/eure/si2018-second-half-3/libs/token"
 	"github.com/eure/si2018-second-half-3/models"
 	"github.com/eure/si2018-second-half-3/repositories"
@@ -29,7 +30,9 @@ func GetProfileQuastions(p si.GetProfileQuastionsParams) middleware.Responder {
 
 	// 未記入項目をもとにProfileQuastionsElementを取得する
 	r := repositories.NewProfileQuastionElementRepository(s)
-	profileQuastionElemetens, err := r.FindByBalkProfileList(balkProfileList)
+	var profileQuastionElemetens entities.ProfileQuastionElements
+
+	profileQuastionElemetens, err = r.FindByBalkProfileList(balkProfileList)
 
 	if err != nil {
 		return getProfileQuastionsInternalServerErrorResponse("ProfileQuastionsElementの取得失敗")
@@ -39,29 +42,17 @@ func GetProfileQuastions(p si.GetProfileQuastionsParams) middleware.Responder {
 		return getProfileQuastionsInternalServerErrorResponse("ProfileQuastionsElementが追加されてない可能性があります")
 	}
 
-	var ids []int64
-	for _, profileQuastionElemeten := range profileQuastionElemetens {
-		ids = append(ids, profileQuastionElemeten.ID)
-	}
-
-	// ProfileQuastionsContenetも取得する
-	// NOTE Joinで持ってくれば簡潔になるけど時間が無いので妥協
 	contentRepository := repositories.NewProfileQuastionContentRepository(s)
-	profileQuastionContents, err := contentRepository.FindByProfileQuastionIds(ids)
-	if err != nil {
-		return getProfileQuastionsInternalServerErrorResponse("ProfileQuastionsElementの取得失敗")
+
+	//FIXME N + 1起きるけど許して♡
+	for i, element := range profileQuastionElemetens {
+		profileQuastionElemetens[i].Contents, err = contentRepository.FindByProfileQuastionId(element.ID)
+		if err != nil {
+			return getProfileQuastionsInternalServerErrorResponse("内部エラー")
+		}
 	}
 
-	if len(profileQuastionContents) == 0 {
-		return getProfileQuastionsInternalServerErrorResponse("ProfileQuastionsContentが追加されてない可能性があります")
-	}
+	profileQuastionElemetensModel := profileQuastionElemetens.Build()
 
-	// contentセット
-	for i := range profileQuastionElemetens {
-		profileQuastionElemetens[i].Content = profileQuastionContents[i]
-	}
-
-	// entities -> modelする必要
-
-	return getProfileQuastionsOKResponse(profileQuastionElemetens)
+	return getProfileQuastionsOKResponse(profileQuastionElemetensModel)
 }

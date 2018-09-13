@@ -52,6 +52,16 @@ func GetProfileQuastions(p si.GetProfileQuastionsParams) middleware.Responder {
 		}
 	}
 
+	choiseRepository := repositories.NewProfileQuastionChoiceRepository(s)
+
+	//FIXME N + 1同じく許して♡
+	for i, element := range profileQuastionElemetens {
+		profileQuastionElemetens[i].Choices, err = choiseRepository.FindByProfileQuastionId(element.ID)
+		if err != nil {
+			return getProfileQuastionsInternalServerErrorResponse("内部エラー")
+		}
+	}
+
 	profileQuastionElemetensModel := profileQuastionElemetens.Build()
 
 	return getProfileQuastionsOKResponse(profileQuastionElemetensModel)

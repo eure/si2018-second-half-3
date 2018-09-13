@@ -25,7 +25,7 @@ func (r *ProfileQuastionContentRepository) FindByProfileQuastionId(id int64) ([]
 	var profileQuastionContents []entities.ProfileQuastionContent
 
 	err := engine.
-		Where("profile_quastion_id = ?", id).
+		Where("profile_quastion_element_id = ?", id).
 		Find(&profileQuastionContents)
 
 	if err != nil {

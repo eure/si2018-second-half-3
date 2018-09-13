@@ -36,4 +36,30 @@ func GetProfileQuastions(p si.GetProfileQuastionsParams) middleware.Responder {
 	if len(profileQuastionElemetens) == 0 {
 		return getProfileQuastionsInternalServerErrorResponse("ProfileQuastionsElementが追加されてない可能性があります")
 	}
+
+	var ids []int64
+	for _, profileQuastionElemeten := range profileQuastionElemetens {
+		ids = append(ids, profileQuastionElemeten.ID)
+	}
+
+	// ProfileQuastionsContenetも取得する
+	// NOTE Joinで持ってくれば簡潔になるけど時間が無いので妥協
+	contentRepository := repositories.NewProfileQuastionContentRepository(s)
+	profileQuastionContents, err := contentRepository.FindByProfileQuastionIds(ids)
+	if err != nil {
+		return getProfileQuastionsInternalServerErrorResponse("ProfileQuastionsElementの取得失敗")
+	}
+
+	if len(profileQuastionContents) == 0 {
+		return getProfileQuastionsInternalServerErrorResponse("ProfileQuastionsContentが追加されてない可能性があります")
+	}
+
+	// contentセット
+	for i := range profileQuastionElemetens {
+		profileQuastionElemetens[i].Content = profileQuastionContents[i]
+	}
+
+	// entities -> modelする必要
+
+	return getProfileQuastionsOKResponse(profileQuastionElemetens)
 }

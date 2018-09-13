@@ -97,73 +97,73 @@ func (u User) GetBalkProfileItems() []string {
 	//    balkProfileItems = append(balkProfileItems, "Birthday")
 	//  }
 	if !isStringPresent(u.Gender) {
-		balkProfileItems = append(balkProfileItems, "Gender")
+		balkProfileItems = append(balkProfileItems, "gender")
 	}
 	if !isStringPresent(u.Nickname) {
-		balkProfileItems = append(balkProfileItems, "Nickname")
+		balkProfileItems = append(balkProfileItems, "nickname")
 	}
 	if isStringPresent(u.ImageURI) {
-		balkProfileItems = append(balkProfileItems, "ImageURI")
+		balkProfileItems = append(balkProfileItems, "image_uri")
 	}
 	if !isStringPresent(u.Tweet) {
-		balkProfileItems = append(balkProfileItems, "Tweet")
+		balkProfileItems = append(balkProfileItems, "tweet")
 	}
 	if !isStringPresent(u.Introduction) {
-		balkProfileItems = append(balkProfileItems, "Introduction")
+		balkProfileItems = append(balkProfileItems, "introduction")
 	}
 	if !isStringPresent(u.ResidenceState) {
-		balkProfileItems = append(balkProfileItems, "ResidenceState")
+		balkProfileItems = append(balkProfileItems, "residence_state")
 	}
 	if !isStringPresent(u.HomeState) {
-		balkProfileItems = append(balkProfileItems, "HomeState")
+		balkProfileItems = append(balkProfileItems, "home_state")
 	}
 	if !isStringPresent(u.Education) {
-		balkProfileItems = append(balkProfileItems, "Education")
+		balkProfileItems = append(balkProfileItems, "education")
 	}
 	if !isStringPresent(u.Job) {
-		balkProfileItems = append(balkProfileItems, "Job")
+		balkProfileItems = append(balkProfileItems, "job")
 	}
 	if !isStringPresent(u.AnnualIncome) {
-		balkProfileItems = append(balkProfileItems, "AnnualIncome")
+		balkProfileItems = append(balkProfileItems, "annual_income")
 	}
 	if !isStringPresent(u.Height) {
-		balkProfileItems = append(balkProfileItems, "Height")
+		balkProfileItems = append(balkProfileItems, "height")
 	}
 	if !isStringPresent(u.BodyBuild) {
-		balkProfileItems = append(balkProfileItems, "BodyBuild")
+		balkProfileItems = append(balkProfileItems, "body_build")
 	}
 	if !isStringPresent(u.MaritalStatus) {
-		balkProfileItems = append(balkProfileItems, "MaritalStatus")
+		balkProfileItems = append(balkProfileItems, "marital_status")
 	}
 	if !isStringPresent(u.Child) {
-		balkProfileItems = append(balkProfileItems, "Child")
+		balkProfileItems = append(balkProfileItems, "child")
 	}
 	if !isStringPresent(u.WhenMarry) {
-		balkProfileItems = append(balkProfileItems, "WhenMarry")
+		balkProfileItems = append(balkProfileItems, "when_marry")
 	}
 	if !isStringPresent(u.WantChild) {
-		balkProfileItems = append(balkProfileItems, "WantChild")
+		balkProfileItems = append(balkProfileItems, "want_child")
 	}
 	if !isStringPresent(u.Smoking) {
-		balkProfileItems = append(balkProfileItems, "Smoking")
+		balkProfileItems = append(balkProfileItems, "smoking")
 	}
 	if !isStringPresent(u.Drinking) {
-		balkProfileItems = append(balkProfileItems, "Drinking")
+		balkProfileItems = append(balkProfileItems, "drinking")
 	}
 	if !isStringPresent(u.Holiday) {
-		balkProfileItems = append(balkProfileItems, "Holiday")
+		balkProfileItems = append(balkProfileItems, "holiday")
 	}
 	if !isStringPresent(u.HowToMeet) {
-		balkProfileItems = append(balkProfileItems, "HowToMeet")
+		balkProfileItems = append(balkProfileItems, "how_to_meet")
 	}
 	if !isStringPresent(u.CostOfDate) {
-		balkProfileItems = append(balkProfileItems, "CostOfDate")
+		balkProfileItems = append(balkProfileItems, "cost_of_date")
 	}
 	if !isStringPresent(u.NthChild) {
-		balkProfileItems = append(balkProfileItems, "NthChild")
+		balkProfileItems = append(balkProfileItems, "nth_child")
 	}
 	if !isStringPresent(u.Housework) {
-		balkProfileItems = append(balkProfileItems, "Housework")
+		balkProfileItems = append(balkProfileItems, "housework")
 	}
 
 	return balkProfileItems

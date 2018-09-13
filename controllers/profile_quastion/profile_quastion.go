@@ -22,8 +22,8 @@ func GetProfileQuastions(p si.GetProfileQuastionsParams) middleware.Responder {
 		return getProfileQuastionsUnauthorizedResponse("無効なトークン")
 	}
 
-	balkProfileList := user.GetBalkProfileItems()
-	if len(balkProfileList) == 0 {
+	blankProfileList := user.GetBalkProfileItems()
+	if len(blankProfileList) == 0 {
 		var elements []*models.ProfileQuastionElement
 		return getProfileQuastionsOKResponse(elements)
 	}
@@ -32,7 +32,7 @@ func GetProfileQuastions(p si.GetProfileQuastionsParams) middleware.Responder {
 	r := repositories.NewProfileQuastionElementRepository(s)
 	var profileQuastionElemetens entities.ProfileQuastionElements
 
-	profileQuastionElemetens, err = r.FindByBalkProfileList(balkProfileList)
+	profileQuastionElemetens, err = r.FindByBalkProfileList(blankProfileList)
 
 	if err != nil {
 		return getProfileQuastionsInternalServerErrorResponse("ProfileQuastionsElementの取得失敗")

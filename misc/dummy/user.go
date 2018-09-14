@@ -281,4 +281,17 @@ func dummyUser() {
 		}
 		r.Create(u)
 	}
+
+	// 100人プロフィールが未入力のやつを追加
+	birthday := strfmt.Date(time.Now().Add((-time.Duration(20+rand.Intn(40))*365 + time.Duration(rand.Intn(365))) * (24 * time.Hour)))
+
+	for i := 2001; i <= 2100; i++ {
+		u := entities.User{
+			ID:       int64(i),
+			Gender:   "M",
+			Birthday: birthday,
+		}
+
+		r.Create(u)
+	}
 }

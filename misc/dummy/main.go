@@ -29,6 +29,7 @@ func main() {
 	dummyManyMessageCouple() // マッチ & メッセージしてるカップル M222 と F2222
 	dummyManyGotLikeUser()   // F1111 に M1〜M100の男性からの被いいね
 	dummyManyMatchUser()     // F1112 UID 1〜200の男性が UID 1112の女性とマッチ
+	dummyProfileQuastion()
 }
 
 func dummyManyGotLikeUser() {

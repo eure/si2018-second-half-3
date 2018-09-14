@@ -14,7 +14,7 @@ type ProfileQuastionElement struct {
 }
 
 func (p ProfileQuastionElement) Build() models.ProfileQuastionElement {
-	var profileQuastionContent models.ProfileQuastionContent
+	profileQuastionContent := make(models.ProfileQuastionContent, 0)
 
 	// 本来はentities.ProfileQuastionContentないでモデルへの変換をやるべきだけどここでやっちゃう
 	for _, content := range p.Contents {

@@ -32,6 +32,7 @@ func BuildUserEntityByModel(meID int64, p si.PutProfileBody) entities.User {
 		CostOfDate:     p.CostOfDate,
 		NthChild:       p.NthChild,
 		Housework:      p.Housework,
+		Hobby:          p.Hobby,
 	}
 }
 

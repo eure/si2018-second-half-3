@@ -720,6 +720,8 @@ paths:
               type: string
             home_state:
               type: string
+            hobby:
+              type: string
             education:
               type: string
             job:

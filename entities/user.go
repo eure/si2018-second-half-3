@@ -31,8 +31,8 @@ type User struct {
 	NthChild       string          `xorm:"nth_child"`
 	Housework      string          `xorm:"housework"`
 	Hobby          string          `xorm:"hobby"`
-	CreatedAt      strfmt.DateTime `xorm:"created_at"`
-	UpdatedAt      strfmt.DateTime `xorm:"updated_at"`
+	CreatedAt      strfmt.DateTime `xorm:"created_at created"`
+	UpdatedAt      strfmt.DateTime `xorm:"updated_at updated"`
 
 	ImageURI string `xorm:"-"`
 }

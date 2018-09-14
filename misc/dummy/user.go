@@ -198,7 +198,6 @@ func dummyUser() {
 		"160cm",
 		"170cm",
 	}
-
 	s := repositories.NewSession()
 	r := repositories.NewUserRepository(s)
 

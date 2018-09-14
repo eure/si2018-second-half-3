@@ -13,17 +13,17 @@ func dummyProfileQuastionContent() {
 		{
 			Message:           "Q あなたの性別を教えてください",
 			Type:              "main",
-			ProfileQuastionId: 1,
+			ProfileQuastionId: 6,
 		},
 		{
 			Message:           "Q あなたの誕生日を教えてください",
 			Type:              "main",
-			ProfileQuastionId: 2,
+			ProfileQuastionId: 7,
 		},
 		{
 			Message:           "Q あなたのニックネームを教えてください",
 			Type:              "main",
-			ProfileQuastionId: 3,
+			ProfileQuastionId: 8,
 		},
 		{
 			Message:           "Q つぶやきを入力しましょう",
@@ -38,102 +38,102 @@ func dummyProfileQuastionContent() {
 		{
 			Message:           "Q 自己紹介を入力しましょう",
 			Type:              "main",
-			ProfileQuastionId: 5,
+			ProfileQuastionId: 10,
 		},
 		{
 			Message:           "Q 居住地を教えてください",
 			Type:              "main",
-			ProfileQuastionId: 6,
+			ProfileQuastionId: 11,
 		},
 		{
 			Message:           "Q 出身地を教えてください",
 			Type:              "main",
-			ProfileQuastionId: 7,
+			ProfileQuastionId: 12,
 		},
 		{
 			Message:           "Q 学歴を教えてください",
 			Type:              "main",
-			ProfileQuastionId: 8,
+			ProfileQuastionId: 1,
 		},
 		{
 			Message:           "Q 職業を教えてください",
 			Type:              "main",
-			ProfileQuastionId: 9,
+			ProfileQuastionId: 14,
 		},
 		{
 			Message:           "Q 年収を教えてください",
 			Type:              "main",
-			ProfileQuastionId: 10,
+			ProfileQuastionId: 15,
 		},
 		{
 			Message:           "Q 身長を教えてください",
 			Type:              "main",
-			ProfileQuastionId: 11,
+			ProfileQuastionId: 16,
 		},
 		{
 			Message:           "Q 体型を教えてください",
 			Type:              "main",
-			ProfileQuastionId: 12,
+			ProfileQuastionId: 13,
 		},
 		{
 			Message:           "Q 結婚歴を教えてください",
 			Type:              "main",
-			ProfileQuastionId: 13,
+			ProfileQuastionId: 18,
 		},
 		{
 			Message:           "Q 子供がいるかを教えてください",
 			Type:              "main",
-			ProfileQuastionId: 14,
+			ProfileQuastionId: 19,
 		},
 		{
 			Message:           "Q いつ結婚したいのか教えてください",
 			Type:              "main",
-			ProfileQuastionId: 15,
+			ProfileQuastionId: 20,
 		},
 		{
 			Message:           "Q 子供がほしいかを教えてください",
 			Type:              "main",
-			ProfileQuastionId: 16,
+			ProfileQuastionId: 21,
 		},
 		{
 			Message:           "Q タバコを吸いますか？",
 			Type:              "main",
-			ProfileQuastionId: 17,
+			ProfileQuastionId: 22,
 		},
 		{
 			Message:           "Q お酒を飲みますか?",
 			Type:              "main",
-			ProfileQuastionId: 18,
+			ProfileQuastionId: 23,
 		},
 		{
 			Message:           "Q 休日を教えてください",
 			Type:              "main",
-			ProfileQuastionId: 19,
+			ProfileQuastionId: 24,
 		},
 		{
 			Message:           "Q 出会うまでの希望を教えてください",
 			Type:              "main",
-			ProfileQuastionId: 20,
+			ProfileQuastionId: 25,
 		},
 		{
 			Message:           "Q デートにいくらぐらい賭けますか",
 			Type:              "main",
-			ProfileQuastionId: 21,
+			ProfileQuastionId: 26,
 		},
 		{
 			Message:           "Q 兄弟、姉妹関係を教えてください",
 			Type:              "main",
-			ProfileQuastionId: 22,
+			ProfileQuastionId: 27,
 		},
 		{
 			Message:           "Q 家事育児には積極的に参加しますか？",
 			Type:              "main",
-			ProfileQuastionId: 23,
+			ProfileQuastionId: 28,
 		},
 		{
 			Message:           "Q 趣味を教えてください",
 			Type:              "main",
-			ProfileQuastionId: 24,
+			ProfileQuastionId: 5,
 		},
 	}
 

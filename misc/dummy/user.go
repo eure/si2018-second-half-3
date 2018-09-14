@@ -287,9 +287,30 @@ func dummyUser() {
 
 	for i := 2001; i <= 2100; i++ {
 		u := entities.User{
-			ID:       int64(i),
-			Gender:   "M",
-			Birthday: birthday,
+			ID:             int64(i),
+			Gender:         "M",
+			Birthday:       birthday,
+			Nickname:       "",
+			NthChild:       "",
+			Tweet:          "",
+			Introduction:   "",
+			ResidenceState: "",
+			HomeState:      "",
+			Education:      "",
+			Job:            "",
+			AnnualIncome:   "",
+			Height:         "",
+			BodyBuild:      "",
+			MaritalStatus:  "",
+			Child:          "",
+			WhenMarry:      "",
+			WantChild:      "",
+			Smoking:        "",
+			Drinking:       "",
+			Holiday:        "",
+			HowToMeet:      "",
+			CostOfDate:     "",
+			Housework:      "",
 		}
 
 		r.Create(u)

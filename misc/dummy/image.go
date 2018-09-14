@@ -62,4 +62,16 @@ func dummyImage() {
 		}
 		r.Create(image)
 	}
+
+	// for male
+	for i := 2001; i <= 2100; i++ {
+		now := strfmt.DateTime(time.Now())
+		image := entities.UserImage{
+			UserID:    int64(i),
+			Path:      maleImg[rand.Intn(len(maleImg))],
+			CreatedAt: now,
+			UpdatedAt: now,
+		}
+		r.Create(image)
+	}
 }

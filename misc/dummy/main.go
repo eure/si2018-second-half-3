@@ -16,7 +16,7 @@ const (
 	maleIDEnd     = 1000
 	femaleIDStart = 1001
 	femaleIDEnd   = 2000
-	lastUserID    = 2000
+	lastUserID    = 2100
 
 	maleMessageUserID   = 222
 	femaleMessageUserID = 1222

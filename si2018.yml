@@ -478,6 +478,9 @@ definitions:
       priority:
         type: "integer"
         format: "int64"
+      form_type:
+        type: string
+        format: "string"
       choices:
         type: array
         items:

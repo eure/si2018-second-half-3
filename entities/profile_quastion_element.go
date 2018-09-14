@@ -8,6 +8,7 @@ type ProfileQuastionElement struct {
 	ID       int64  `xorm:"id"`
 	Priority int64  `xorm:"priority"`
 	Name     string `xorm:"name"`
+	FormType string `xorm:"form_type"`
 
 	Choices  []ProfileQuastionChoice  `xorm:"-"`
 	Contents []ProfileQuastionContent `xorm:"-"`
@@ -36,6 +37,7 @@ func (p ProfileQuastionElement) Build() models.ProfileQuastionElement {
 	return models.ProfileQuastionElement{
 		Contents: profileQuastionContent,
 		Choices:  choiceContent,
+		FormType: p.FormType,
 		Name:     p.Name,
 		Priority: p.Priority,
 	}
